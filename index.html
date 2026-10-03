@@ -3,32 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Special Surprise For You 💙</title>
+    <title>Special Surprise For My Aleeza & Ayan 💙</title>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <style>
         body { 
             background: linear-gradient(135deg, #e0f2fe, #bae6fd); 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             text-align: center; 
-            padding-top: 50px; 
+            padding-top: 30px; 
             color: #0369a1; 
             margin: 0;
             min-height: 100vh;
+            padding-bottom: 40px;
         }
         .box { 
             background: white; 
-            width: 85%; 
-            max-width: 450px; 
+            width: 90%; 
+            max-width: 500px; 
             margin: auto; 
-            padding: 30px; 
+            padding: 25px; 
             border-radius: 20px; 
             box-shadow: 0 10px 25px rgba(2, 132, 199, 0.15); 
             border: 2px solid #7dd3fc; 
             position: relative; 
             z-index: 10; 
         }
-        h2 { color: #0284c7; font-size: 22px; margin-bottom: 20px; }
-        p { font-size: 17px; line-height: 1.6; color: #334155; font-weight: 500; }
+        h2 { color: #0284c7; font-size: 22px; margin-bottom: 15px; }
+        p { font-size: 16px; line-height: 1.6; color: #334155; font-weight: 500; text-align: left; white-space: pre-line; }
         input { 
             padding: 12px; 
             width: 80%; 
@@ -54,12 +55,34 @@
         }
         button:hover { background: #0369a1; transform: scale(1.05); }
         .hidden { display: none; }
-        .emoji-float { font-size: 45px; margin-bottom: 10px; }
+        .emoji-float { font-size: 40px; margin-bottom: 10px; }
         
         #no-btn {
             position: relative;
             background: #cbd5e1;
             color: #475569;
+        }
+        .photo-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+        .photo-gallery img {
+            width: 30%;
+            border-radius: 10px;
+            border: 2px solid #bae6fd;
+            object-fit: cover;
+            height: 120px;
+        }
+        .single-photo {
+            width: 100%;
+            max-height: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 2px solid #bae6fd;
+            margin-bottom: 15px;
         }
     </style>
 </head>
@@ -69,7 +92,7 @@
 <div class="box" id="step-password">
     <div class="emoji-float">🔐💙</div>
     <h2>Enter Password to Unlock</h2>
-    <input type="password" id="pass-input" placeholder="Hint: Year (2006)...">
+    <input type="password" id="pass-input" placeholder="Enter password (aleezayan)...">
     <br>
     <button onclick="checkPassword()">Submit 🔓</button>
 </div>
@@ -78,47 +101,73 @@
 <div class="box hidden" id="step-question">
     <div class="emoji-float">🥺💙</div>
     <h2>Do you love me?</h2>
-    <p id="warning-text" style="color: #e11d48; font-weight: bold; display: none; margin-bottom: 10px;">
-        😤 Hmmm? No click krne ki jurrat kese hui?! Yesss par click krooo! 😾💢
+    <p id="warning-text" style="color: #e11d48; font-weight: bold; display: none; margin-bottom: 10px; text-align: center;">
+        😤 Hmmm? No click krne ki jurrat kese hui?! 😾💢 Yesss par click krooo!
     </p>
     <button onclick="nextStep(3)" style="background: #0284c7;">Yes 💖</button>
     <button id="no-btn" onclick="handleNo()">No 😒</button>
 </div>
 
-<!-- Step 3: Thank You Message Screen -->
+<!-- Step 3: Thank You Message Screen with Photos -->
 <div class="box hidden" id="step-message">
     <div class="emoji-float">🥰💌✨</div>
     <h2>Thank You!</h2>
-    <p>Thank you for loving me my januuu! 💙✨ You are the best thing that ever happened to me. 🧸💫</p>
+    
+    <div class="photo-gallery">
+        <img src="WhatsApp Image 2026-10-03 at 4.03.11 PM.jpeg" alt="Memory 1">
+        <img src="WhatsApp Image 2026-10-03 at 4.03.10 PM (1).jpeg" alt="Memory 2">
+        <img src="WhatsApp Image 2026-10-03 at 4.03.10 PM.jpeg" alt="Memory 3">
+    </div>
+
+    <p style="text-align: center;">Thank you for loving me my januuu! 💙✨ You are the best thing that ever happened to me. 🧸💫</p>
     <br>
     <button onclick="nextStep(4)">Next ➡️</button>
 </div>
 
-<!-- Step 4: Final Boyfriend Day & Love Message Screen -->
+<!-- Step 4: Final Boyfriend Day & Letter Screen -->
 <div class="box hidden" id="step-final">
     <div class="emoji-float">👑💙🎉</div>
-    <h2>Happy Boyfriend Day! 🗓️✨</h2>
+    <h2>Happy Boyfriend Day jan 💕</h2>
+    
+    <img src="WhatsApp Image 2026-10-03 at 4.03.10 PM.jpeg" alt="Special Memory" class="single-photo">
+
     <p>
-        Yayyy! Aaj special day hai! 🥳💙 
-        <br><br>
-        <b>I love you meri jaan!</b> Aap se mohabbat hai mujhe aur hamesha rahegi. Tum meri zindagi ka sab se khoobsurat hissa ho. 💍❄️✨
+I love you so much meri jan meri rasmali 
+I miss you alot 💔 
+Ap bhot bhot zayda achye hen. Lakin kaffi dafa ma apki hurt kar deti ho jo ky mera dill nhi hota bss jb gussa a jata ha fir esye ho jata ha 😮‍💨
+
+Mjhy pata ha ap busy hotye hen or bt nhi kar saktye or thaq bhi jatye hen lakin mera dill karta ha jb Bt karnye ko tb ap nhi hotye fir mjhy rona bhi a jata ha 😭
+
+Lakin meri itni sari ghaltiu ky bd bhi ap mjhy maff kar detye hen 😘 or mjhy waqiya hi nhi lagta ky mjhy ap jesa payar massom larka mil sakta ha 💕 umahhh umahhhhh 💋💋💋💋💋💋 Or hamesha khush rahyen ap allah jee apki sari muskil dor kar dy ameen sum ameen 💕💋💋💋💋💋👀🌸
+
+Ap mjhy dant lyna or gussa bhi kar lyna 🥹
+Lakin chor ky na jana 💕💋💋💋💋
+Wesye bhi ma mar doungi apko phir 🤧
+
+Or mjhy ap miss ayan bhi nhi boltye ab 🥹
+Woh bhi bola karyen 💕💋💋😘💓
+
+Ap jesa khiyal raknye wala itna zayda payar karnye wala or itna zayda handsome larka mjhy nhi milaye ga naa 💋💋😘😘💕 
+Jo meri chikni chupari batou ma a jaye 💋😘💋😘
+Or mjhy hug kar ly beashaq jitna bhi gussa hou 👀🌸
+
+I love you meri rasmali meri jan 💋💋💋😘💋😘
     </p>
-    <div class="emoji-float">❄️💎🤍</div>
+    <div class="emoji-float" style="margin-top: 15px;">❄️💎🤍✨</div>
 </div>
 
 <script>
     function checkPassword() {
         const pass = document.getElementById("pass-input").value.trim();
-        if (pass === "2006") {
+        if (pass.toLowerCase() === "aleezayan") {
             document.getElementById("step-password").classList.add("hidden");
             document.getElementById("step-question").classList.remove("hidden");
         } else {
-            alert("Wrong password! Enter 2006 😉");
+            alert("Wrong password! Enter aleezayan 😉");
         }
     }
 
     function handleNo() {
-        // Warning text aur larnay wale emojis show honge
         document.getElementById("warning-text").style.display = "block";
         document.getElementById("no-btn").innerText = "Soch lo ache se! 😾";
     }
@@ -131,7 +180,6 @@
             document.getElementById("step-message").classList.add("hidden");
             document.getElementById("step-final").classList.remove("hidden");
             
-            // Celebration Confetti effect
             confetti({
                 particleCount: 150,
                 spread: 90,
