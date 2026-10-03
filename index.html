@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Surprise For You 💙</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <style>
+        body { 
+            background: linear-gradient(135deg, #e0f2fe, #bae6fd); 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            text-align: center; 
+            padding-top: 50px; 
+            color: #0369a1; 
+            margin: 0;
+            min-height: 100vh;
+        }
+        .box { 
+            background: white; 
+            width: 85%; 
+            max-width: 450px; 
+            margin: auto; 
+            padding: 30px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 25px rgba(2, 132, 199, 0.15); 
+            border: 2px solid #7dd3fc; 
+            position: relative; 
+            z-index: 10; 
+        }
+        h2 { color: #0284c7; font-size: 22px; margin-bottom: 20px; }
+        p { font-size: 17px; line-height: 1.6; color: #334155; font-weight: 500; }
+        input { 
+            padding: 12px; 
+            width: 80%; 
+            margin: 15px 0; 
+            border: 2px solid #38bdf8; 
+            border-radius: 10px; 
+            outline: none; 
+            font-size: 16px; 
+            text-align: center; 
+            color: #0369a1;
+        }
+        button { 
+            background: #0284c7; 
+            color: white; 
+            border: none; 
+            padding: 12px 25px; 
+            border-radius: 10px; 
+            cursor: pointer; 
+            font-size: 16px; 
+            transition: 0.3s; 
+            font-weight: bold; 
+            margin: 8px;
+        }
+        button:hover { background: #0369a1; transform: scale(1.05); }
+        .hidden { display: none; }
+        .emoji-float { font-size: 45px; margin-bottom: 10px; }
+        
+        #no-btn {
+            position: relative;
+            background: #cbd5e1;
+            color: #475569;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Step 1: Password Screen -->
+<div class="box" id="step-password">
+    <div class="emoji-float">🔐💙</div>
+    <h2>Enter Password to Unlock</h2>
+    <input type="password" id="pass-input" placeholder="Hint: Year (2006)...">
+    <br>
+    <button onclick="checkPassword()">Submit 🔓</button>
+</div>
+
+<!-- Step 2: Love Question Screen -->
+<div class="box hidden" id="step-question">
+    <div class="emoji-float">🥺💙</div>
+    <h2>Do you love me?</h2>
+    <p id="warning-text" style="color: #e11d48; font-weight: bold; display: none; margin-bottom: 10px;">
+        😤 Hmmm? No click krne ki jurrat kese hui?! Yesss par click krooo! 😾💢
+    </p>
+    <button onclick="nextStep(3)" style="background: #0284c7;">Yes 💖</button>
+    <button id="no-btn" onclick="handleNo()">No 😒</button>
+</div>
+
+<!-- Step 3: Thank You Message Screen -->
+<div class="box hidden" id="step-message">
+    <div class="emoji-float">🥰💌✨</div>
+    <h2>Thank You!</h2>
+    <p>Thank you for loving me my januuu! 💙✨ You are the best thing that ever happened to me. 🧸💫</p>
+    <br>
+    <button onclick="nextStep(4)">Next ➡️</button>
+</div>
+
+<!-- Step 4: Final Boyfriend Day & Love Message Screen -->
+<div class="box hidden" id="step-final">
+    <div class="emoji-float">👑💙🎉</div>
+    <h2>Happy Boyfriend Day! 🗓️✨</h2>
+    <p>
+        Yayyy! Aaj special day hai! 🥳💙 
+        <br><br>
+        <b>I love you meri jaan!</b> Aap se mohabbat hai mujhe aur hamesha rahegi. Tum meri zindagi ka sab se khoobsurat hissa ho. 💍❄️✨
+    </p>
+    <div class="emoji-float">❄️💎🤍</div>
+</div>
+
+<script>
+    function checkPassword() {
+        const pass = document.getElementById("pass-input").value.trim();
+        if (pass === "2006") {
+            document.getElementById("step-password").classList.add("hidden");
+            document.getElementById("step-question").classList.remove("hidden");
+        } else {
+            alert("Wrong password! Enter 2006 😉");
+        }
+    }
+
+    function handleNo() {
+        // Warning text aur larnay wale emojis show honge
+        document.getElementById("warning-text").style.display = "block";
+        document.getElementById("no-btn").innerText = "Soch lo ache se! 😾";
+    }
+
+    function nextStep(stepNumber) {
+        if (stepNumber === 3) {
+            document.getElementById("step-question").classList.add("hidden");
+            document.getElementById("step-message").classList.remove("hidden");
+        } else if (stepNumber === 4) {
+            document.getElementById("step-message").classList.add("hidden");
+            document.getElementById("step-final").classList.remove("hidden");
+            
+            // Celebration Confetti effect
+            confetti({
+                particleCount: 150,
+                spread: 90,
+                origin: { y: 0.6 }
+            });
+        }
+    }
+</script>
+
+</body>
+</html>
